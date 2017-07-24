@@ -13,9 +13,9 @@
 
 	"types": [
 		["OpenC2Object", "Choice", [], "", [
-				[1, "command", "OpenC2Command", [], ""],
-				[2, "response", "OpenC2Response", [], ""],
-				[3, "alert", "OpenC2Alert", [], ""]
+				[1, "command", "OpenC2Command", [], "OpenC2 Command"],
+				[2, "response", "OpenC2Response", [], "OpenC2 Response"],
+				[3, "alert", "OpenC2Alert", [], "OpenC2 Alert"]
 			]
 		]
 	]
