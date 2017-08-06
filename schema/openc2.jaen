@@ -12,7 +12,7 @@
 	},
 
 	"types": [
-		["OpenC2Object", "Choice", [], "", [
+		["OpenC2Object", "Choice", [], "OpenC2 Object:: The OpenC2 language is designed at a level of abstraction high enough such that it enables persistence as technologies advance and is implementation agnostic, but with enough precision that the need for specifiers and modifiers is limited. \nThe OpenC2 language has three distinct types of messages: Command, Response, and Alert. The OpenC2 Command describes an action performed on a target. It can be directive or descriptive depending on the context. The OpenC2 Response is used to provide data requested as a result of an action. The OpenC2 Response message will contain the requested data and have a reference to the action that initiated the response. The OpenC2 Alert is used to signal the occurrence of an event or error. It is an unsolicited message that does not need to reference a previously issued action.", [
 				[1, "command", "OpenC2Command", [], "OpenC2 Command:: The OpenC2 Command describes an action performed on a target. It can be directive or descriptive depending on the context."],
 				[2, "response", "OpenC2Response", [], "OpenC2 Response:: OpenC2 Response is used to provide any data requested as a result of an action. It can be used to signal the acknowledgement of an action, provide the status of an action along with additional information related to the requested action, or signal the completion of the action. The recipient of the OpenC2 Response can be the original requester of the action or to another recipient(s) designated in the modifier of the action."],
 				[3, "alert", "OpenC2Alert", [], "OpenC2 Alert:: The OpenC2 Alert is used to signal the occurrence of an event or error. It is an unsolicited message that does not need to reference a previously issued command."]
@@ -20,10 +20,11 @@
 		],
 		
 		["OpenC2Command", "Record", [], "", [
-			[1, "action", "Action", [], ""],
-			[2, "target", "Target", [], ""],
-			[3, "actuator", "Actuator", ["?"], ""],
-			[4, "modifiers", "Modifiers", ["?"], ""]]
+				[1, "action", "Action", [], ""],
+				[2, "target", "Target", [], ""],
+				[3, "actuator", "Actuator", ["?"], ""],
+				[4, "modifiers", "Modifiers", ["?"], ""]
+			]
 		]
 	]
 }
