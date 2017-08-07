@@ -89,6 +89,11 @@
 				[22, "windows_registry_key", "windows-registry-key", [], "SCO v2"],
 				[23, "x509_certificate", "x509-certificate", [], "SCO v2"]
 			]
+		],
+		
+		["Actuator", "Choice", [], "", [
+				[0, "any", "ActuatorSpecifiers", [], "TBSL"]
+			]
 		]
 	]
 }
