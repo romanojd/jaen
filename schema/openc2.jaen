@@ -104,6 +104,34 @@
 				[5, "response", "response-type", ["?"], "Indicate the type of response required for the action."],
 				[6, "respond_to", "respond-to", ["?"], "The location where the response should be sent."]
 			]
-		]
+		],
+		
+		["copy", "Record", [], "The copy action duplicates a file or data flow.", [
+				[1, "action", "Action", [], "The value of this property MUSC be copy."],
+				[2, "target", "target-copy", [], "The target of the copy action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-copy", "Record", [], "", [
+				[1, "*", "target-copy-specifiers", [], "Represents the specified target for the #copy action."],
+				[2, "options", "target-copy-options", [], "Additional options required for the #copy action."]
+			]
+		],
+		
+		["target-copy-specifiers", "Choice", [], "", [
+				[1, "disk_partition", "disk-partition", [], "Specifies a Disk Partition target."],
+				[2, "file", "file", [], "Specifies a File target"],
+				[3, "directory", "directory", [], "Specifies a Directory target"],
+				[4, "memory", "memory", [], "Specifies a Memory target"],
+				[5, "network_traffic", "network_traffic", [], "Specifies a Network Traffic target"],
+			]
+		],
+		
+		["target-copy-options", "Record", [], "", [
+				[1, "destination", "*", [], "Identifies the destination of the #copy action."]
+			]
+		],
 	]
 }
