@@ -94,6 +94,16 @@
 		["Actuator", "Choice", [], "", [
 				[0, "any", "ActuatorSpecifiers", [], "TBSL"]
 			]
+		],
+		
+		["Modifiers", "Map", [], "", [
+				[1, "context", "String", ["?"], "A reference that provides context for the action."],
+				[2, "start_time", "date-time", ["?"], "The specific date/time to initiate the action."],
+				[3, "end_time", "date-time", ["?"], "The specific date/time to terminate the action."],
+				[4, "command_id", "command-id", ["?"], "The unique identifier for the action."],
+				[5, "response", "response-type", ["?"], "Indicate the type of response required for the action."],
+				[6, "respond_to", "respond-to", ["?"], "The location where the response should be sent."]
+			]
 		]
 	]
 }
