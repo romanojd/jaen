@@ -62,6 +62,33 @@
 				[32, "mitigate", "The mitigate action tasks the recipient enclave to circumvent the problem without necessarily eliminating the vulnerability or attack point."],
 				[33, "remediate", "The remediate action tasks the recipient enclave to eliminate the vulnerability or attack point. Remediate implies that addressing the issue is paramount."]
 			]
+		],
+		
+		["Target", "Choice", [], "OpenC2 Target datatypes", [
+				[1, "artifact", "artifact", [], "SCO v2"],
+				[2, "openc2", "openc2", [], "OpenC2 - query actuator for supported capabilities, negotiate connection"],
+				[3, "device", "device", [], "CybOX 2.1"],
+				[4, "directory", "directory", [], "SCO v2"],
+				[5, "disk", "disk", [], "CybOX 2.1"],
+				[6, "disk_partition", "disk-partition", [], "CybOX 2.1"],
+				[7, "domain_name", "domain-name", [], "SCO v2"],
+				[8, "email_addr", "email-addr", [], "SCO v2"],
+				[9, "email_message", "email-message", [], "SCO v2"],
+				[10, "file", "file", [], "SCO v2"],
+				[11, "ipv4_addr", "ipv4-addr", [], "SCO v2"],
+				[12, "ipv6_addr", "ipv6-addr", [], "SCO v2"],
+				[13, "mac_addr", "mac-addr", [], "SCO v2"],
+				[14, "memory", "memory", [], "CybOX 2.1"],
+				[15, "ip_connection", "ip-connection", [], "OpenC2"],
+				[16, "process", "process", [], "SCO v2"],
+				[17, "software", "software", [], "SCO v2"],
+				[18, "url", "url", [], "SCO v2"],
+				[19, "user_account", "user-account", [], "SCO v2"],
+				[20, "user_session", "user-session", [], "CybOX 2.1"],
+				[21, "volume", "volume", [], "CybOX 2.1"],
+				[22, "windows_registry_key", "windows-registry-key", [], "SCO v2"],
+				[23, "x509_certificate", "x509-certificate", [], "SCO v2"]
+			]
 		]
 	]
 }
