@@ -20,10 +20,10 @@
 		],
 		
 		["OpenC2Command", "Record", [], "", [
-				[1, "action", "Action", [], ""],
-				[2, "target", "Target", [], ""],
-				[3, "actuator", "Actuator", ["?"], ""],
-				[4, "modifiers", "Modifiers", ["?"], ""]
+				[1, "action", "Action", [], "The task or activity to be performed (i.e., the 'verb')."],
+				[2, "target", "Target", [], "The object of the _action_. The _action_ is performed on the _target_."],
+				[3, "actuator", "Actuator", ["?"], "The subject of the _action_. The _actuator_ executes the _action_ on the _target_."],
+				[4, "modifiers", "Modifiers", ["?"], "An object containing additional properties that modify the action_."]
 			]
 		]
 	]
