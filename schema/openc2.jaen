@@ -115,8 +115,8 @@
 		],
 		
 		["target-copy", "Record", [], "", [
-				[1, "*", "target-copy-specifiers", [], "Represents the specified target for the #copy action."],
-				[2, "options", "target-copy-options", [], "Additional options required for the #copy action."]
+				[1, "*", "target-copy-specifiers", [], "Represents the specified target for the copy action."],
+				[2, "options", "target-copy-options", [], "Additional options required for the copy action."]
 			]
 		],
 		
@@ -130,7 +130,7 @@
 		],
 		
 		["target-copy-options", "Record", [], "", [
-				[1, "destination", "*", [], "Identifies the destination of the #copy action."]
+				[1, "destination", "*", [], "Identifies the destination of the copy action."]
 			]
 		],
 	]
