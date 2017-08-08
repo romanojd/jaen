@@ -106,8 +106,8 @@
 			]
 		],
 		
-		["copy", "Record", [], "The copy action duplicates a file or data flow.", [
-				[1, "action", "Action", [], "The value of this property MUSC be copy."],
+		["copy-type", "Record", [], "The copy action duplicates a file or data flow.", [
+				[1, "action", "Action", [], "The value of this property MUST be copy."],
 				[2, "target", "target-copy", [], "The target of the copy action."],
 				[3, "actuator", "Actuator", ["?"], "#common"],
 				[4, "modifiers", "Modifiers", ["?"], "#common"]
