@@ -106,30 +106,68 @@
 			]
 		],
 		
-		["copy-type", "Record", [], "The copy action duplicates a file or data flow.", [
-				[1, "action", "Action", [], "The value of this property MUST be copy."],
-				[2, "target", "target-copy", [], "The target of the copy action."],
+		["deny_type", "Record", [], "The deny action is used to prevent a certain event or action from completion, such as preventing a flow from reaching a destination (e.g., block) or preventing access.", [
+				[1, "action", "Action", [], "The value of this property MUST be deny."],
+				[2, "target", "target_deny", [], "The target of the deny action."],
 				[3, "actuator", "Actuator", ["?"], "#common"],
 				[4, "modifiers", "Modifiers", ["?"], "#common"]
 			]
 		],
 		
-		["target-copy", "Record", [], "", [
-				[1, "*", "target-copy-specifiers", [], "Represents the specified target for the copy action."],
-				[2, "options", "target-copy-options", [], "Additional options required for the copy action."]
+		["target_deny", "Record", [], "", [
+				[1, "*", "target_deny_specifiers", [], "Represents the specified target for the deny action."],
+				[2, "options", "target_deny_options", [], "Additional options required for the deny action."]
 			]
 		],
 		
-		["target-copy-specifiers", "Choice", [], "", [
-				[1, "disk_partition", "disk-partition", [], "Specifies a Disk Partition target."],
+		["target_deny_specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "network-traffic", "network_traffic", [], "Specifies a Network Traffic target"],
+				[3, "process", "process", [], "Specifies a Process target"],
+				[4, "software", "software", [], "Specifies a Software target"],
+				[5, "url", "url", [], "Specifies a URL target"],
+				[6, "user-account", "user_account", [], "Specifies a User Account target"],
+			]
+		],
+		
+		["target_deny_options", "Record", [], "", [
+				[1, "method", "target_deny_method", [], "Identifies the method of the deny action."]
+			]
+		],
+		
+		["target_deny_method", "Enumerated", [], "", [
+				[1, "acl", ""],
+				[2, "blackhole", ""],
+				[3, "sinkhole", ""],
+				[4, "blacklist", ""],
+				[5, "whitelist", ""]
+			]
+		],
+		
+		["copy_type", "Record", [], "The copy action duplicates a file or data flow.", [
+				[1, "action", "Action", [], "The value of this property MUST be copy."],
+				[2, "target", "target_copy", [], "The target of the copy action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target_copy", "Record", [], "", [
+				[1, "*", "target_copy_specifiers", [], "Represents the specified target for the copy action."],
+				[2, "options", "target_copy_options", [], "Additional options required for the copy action."]
+			]
+		],
+		
+		["target_copy_specifiers", "Choice", [], "", [
+				[1, "disk-partition", "disk_partition", [], "Specifies a Disk Partition target."],
 				[2, "file", "file", [], "Specifies a File target"],
 				[3, "directory", "directory", [], "Specifies a Directory target"],
 				[4, "memory", "memory", [], "Specifies a Memory target"],
-				[5, "network_traffic", "network_traffic", [], "Specifies a Network Traffic target"],
+				[5, "network-traffic", "network_traffic", [], "Specifies a Network Traffic target"],
 			]
 		],
 		
-		["target-copy-options", "Record", [], "", [
+		["target_copy_options", "Record", [], "", [
 				[1, "destination", "*", [], "Identifies the destination of the copy action."]
 			]
 		],
