@@ -151,7 +151,7 @@
 				[3, "process", "process", [], "Specifies a Process target"],
 				[4, "software", "software", [], "Specifies a Software target"],
 				[5, "url", "url", [], "Specifies a URL target"],
-				[6, "user_account", "user-account", [], "Specifies a User Account target"],
+				[6, "user_account", "user-account", [], "Specifies a User Account target"]
 			]
 		],
 		
@@ -168,6 +168,34 @@
 				[5, "whitelist", ""]
 			]
 		],
+		
+		["set-type", "Record", [], "The set action changes a value, configuration, or state of a managed entity within an IT system.", [
+				[1, "action", "Action", [], "The value of this property MUST be set."],
+				[2, "target", "target-set", [], "The target of the set action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-set", "Record", [], "", [
+				[1, "*", "target-set-specifiers", [], "Represents the specified target for the set action."],
+				[2, "options", "target-set-options", [], "Additional options required for the set action."]
+			]
+		],
+		
+		["target-set-specifiers", "Choice", [], "", [
+				[1, "artifact", "artifact", [], "Specifies a Artifact target."],
+				[2, "file", "file", [], "Specifies a File target"],
+				[3, "process", "process", [], "Specifies a Process target"],
+				[4, "user_account", "user-account", [], "Specifies a User Account target"],
+				[5, "windows_registry_key", "windows-registry-key", [], "Specifies a Windows Registry Key target"]
+			]
+		],
+		
+		["target-set-options", "Record", [], "", [
+				[1, "value", "*", [], "Identifies the value of the set action."]
+			]
+		]
 		
 		["copy-type", "Record", [], "The copy action duplicates a file or data flow.", [
 				[1, "action", "Action", [], "The value of this property MUST be copy."],
@@ -188,13 +216,14 @@
 				[2, "file", "file", [], "Specifies a File target"],
 				[3, "directory", "directory", [], "Specifies a Directory target"],
 				[4, "memory", "memory", [], "Specifies a Memory target"],
-				[5, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target"],
+				[5, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target"]
 			]
 		],
 		
 		["target-copy-options", "Record", [], "", [
 				[1, "destination", "*", [], "Identifies the destination of the copy action."]
 			]
-		],
+		]
+		
 	]
 }
