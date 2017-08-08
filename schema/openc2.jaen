@@ -106,6 +106,31 @@
 			]
 		],
 		
+		["OpenC2Response", "Record", [], "", [
+				[1, "status", "status-code", [], "The status code."],
+				[2, "status_text", "String", ["?"], "Any descriptive text associated with the status code."],
+				[3, "response_src", "device-id", ["?"], "The origin of the response."],
+				[4, "command_ref", "command-id", ["?"], "Refers to the command_id modifier of the OpenC2 Command that the response is associated with."],
+				[5, "results", "results", ["?"], "Contains the data that was requested from an OpenC2 Command. If not present, the status code is a sufficient response."]
+			]
+		],
+		
+		["status-code", "Enumerated", [], "", [
+				[1, "Processing", "102"],
+				[2, "OK", "200"],
+				[3, "Bad_Request", "400"],
+				[4, "Unauthorized", "401"],
+				[5, "Forbidden", "403"],
+				[6, "Internal_Server_Error", "500"],
+				[7, "Not_Implemented", "501"]
+			]
+		],
+		
+		["OpenC2Alert", "Record", [], "", [
+				[1, "message", "String", [], "The alert message."]
+			]
+		],
+		
 		["deny-type", "Record", [], "The deny action is used to prevent a certain event or action from completion, such as preventing a flow from reaching a destination (e.g., block) or preventing access.", [
 				[1, "action", "Action", [], "The value of this property MUST be deny."],
 				[2, "target", "target-deny", [], "The target of the deny action."],
