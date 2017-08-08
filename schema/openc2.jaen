@@ -195,7 +195,7 @@
 		["target-set-options", "Record", [], "", [
 				[1, "value", "*", [], "Identifies the value of the set action."]
 			]
-		]
+		],
 		
 		["copy-type", "Record", [], "The copy action duplicates a file or data flow.", [
 				[1, "action", "Action", [], "The value of this property MUST be copy."],
