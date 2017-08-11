@@ -135,7 +135,7 @@
 		
 		["scan-type", "Record", [], "The scan action is the systematic examination of some aspect of the entity or its environment in order to obtain information.", [
 				[1, "action", "Action", [], "The value of this property MUST be scan."],
-				[2, "target", "target-deny", [], "The target of the scan action."],
+				[2, "target", "target-scan", [], "The target of the scan action."],
 				[3, "actuator", "Actuator", ["?"], "#common"],
 				[4, "modifiers", "Modifiers", ["?"], "#common"]
 			]
