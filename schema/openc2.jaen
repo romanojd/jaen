@@ -131,6 +131,55 @@
 			]
 		],
 		
+		
+		
+		["scan-type", "Record", [], "The scan action is the systematic examination of some aspect of the entity or its environment in order to obtain information.", [
+				[1, "action", "Action", [], "The value of this property MUST be scan."],
+				[2, "target", "target-deny", [], "The target of the scan action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-scan", "Record", [], "", [
+				[1, "*", "target-scan-specifiers", [], "Represents the specified target for the scan action."],
+				[2, "options", "target-scan-options", [], "Additional options required for the scan action."]
+			]
+		],
+		
+		["target-scan-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "disk", "disk", [], "Specifies a Disk target."],
+				[3, "disk_partition", "disk-partition", [], "Specifies a Disk Partition target."],
+				[4, "domain_name", "domain-name", [], "Specifies a Domain Name target."],
+				[5, "email_message", "email-message", [], "Specifies a Email Message target."],
+				[6, "file", "file", [], "Specifies a File target."],
+				[7, "ipv4_addr", "ipv4-addr", [], "Specifies a IPv4 Address target."],
+				[8, "memory", "memory", [], "Specifies a Memory target."],
+				[9, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target"],
+				[10, "process", "process", [], "Specifies a Process target"],
+				[11, "software", "software", [], "Specifies a Software target"],
+				[12, "url", "url", [], "Specifies a URL target"],
+				[13, "user_account", "user-account", [], "Specifies a User Account target"],
+				[14, "user_session", "user-session", [], "Specifies a User Session target"],
+				[15, "volume", "volume", [], "Specifies a Volume target"]
+			]
+		],
+		
+		["target-scan-options", "Record", [], "", [
+				[1, "method", "target-scan-method", [], "Identifies the method of the scan action."],
+				[2, "search", "target-scan-search", [], "NEEDS WORK"]
+			]
+		],
+		
+		["target-scan-method", "Enumerated", [], "", [
+				[1, "non-authenticated", ""],
+				[2, "authenticated", ""]
+			]
+		],
+		
+
+
 		["deny-type", "Record", [], "The deny action is used to prevent a certain event or action from completion, such as preventing a flow from reaching a destination (e.g., block) or preventing access.", [
 				[1, "action", "Action", [], "The value of this property MUST be deny."],
 				[2, "target", "target-deny", [], "The target of the deny action."],
