@@ -263,7 +263,7 @@
 				[1, "action", "Action", [], "The value of this property MUST be report."],
 				[2, "target", "target-report", [], "The target of the report action."],
 				[3, "actuator", "Actuator", ["?"], "#common"],
-				[4, "modifiers", "modifiers-report", ["?"], "#common"]
+				[4, "modifiers", "modifiers-report", ["?"], "The modifiers of the report action."]
 			]
 		],
 		
@@ -294,6 +294,42 @@
 			]
 		],
 		
+		
+		["notify-type", "Record", [], "The notify action is used to direct an entity to send information to another entity.", [
+				[1, "action", "Action", [], "The value of this property MUST be notify."],
+				[2, "target", "target-notify", [], "The target of the notify action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "modifiers-notify", ["?"], "The modifiers of the notify action."]
+			]
+		],
+		
+		["target-notify", "Record", [], "", [
+				[1, "*", "target-notify-specifiers", [], "Represents the specified target for the notify action."],
+				[2, "options", "target-notify-options", [], "Additional options required for the notify action."]
+			]
+		],
+		
+		["target-notify-specifiers", "Choice", [], "", [
+				[1, "process", "process", [], "Specifies a Process target."],
+				[2, "user_account", "user-accont", [], "Specifies a User Account target."]
+			]
+		],
+		
+		["target-notify-options", "Record", [], "", [
+				[1, "request", "target-notify-request", [], "TBSL: This is the notify request string."]
+			]
+		],
+		
+		["modifiers-notify", "Map", [], "", [
+				[1, "context", "String", ["?"], "#common"],
+				[2, "start_time", "date-time", ["?"], "#common"],
+				[3, "end_time", "date-time", ["?"], "#common"],
+				[4, "command_id", "command-id", ["?"], "#common"],
+				[5, "response", "response-type", ["?"], "#common"],
+				[6, "respond_to", "respond-to", ["?"], "#common"],
+				[7, "frequency", "duration", ["?"], "The frequency at which to perform the action. The value is the requested time between execution events."]
+			]
+		],
 		
 		["deny-type", "Record", [], "The deny action is used to prevent a certain event or action from completion, such as preventing a flow from reaching a destination (e.g., block) or preventing access.", [
 				[1, "action", "Action", [], "The value of this property MUST be deny."],
