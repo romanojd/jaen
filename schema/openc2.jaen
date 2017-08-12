@@ -127,14 +127,14 @@
 			]
 		],
 		
-		["status-code", "Enumerated", [], "", [
-				[1, "Processing", "102"],
-				[2, "OK", "200"],
-				[3, "Bad_Request", "400"],
-				[4, "Unauthorized", "401"],
-				[5, "Forbidden", "403"],
-				[6, "Internal_Server_Error", "500"],
-				[7, "Not_Implemented", "501"]
+		["status-code", "Enumerated", [], "Adapted from HTTP Status Codes, RFC 7231", [
+				[102, "Processing", "1xx: Informational"],
+				[200, "OK", "2xx: Success"],
+				[400, "Bad_Request", "3xx: Redirection"],
+				[401, "Unauthorized", "4xx: Client Error"],
+				[403, "Forbidden", ""],
+				[500, "Internal_Server_Error", "5xx: Server Error"],
+				[501, "Not_Implemented", ""]
 			]
 		],
 		
@@ -143,10 +143,6 @@
 			]
 		],
 		
-		["Base64", "String", [], "A sequence of octets encoded as a Base64 string"],
-
-		["Hex", "String", [], "A sequence of octets encoded as a hexadecimal string"],
-
 		["hashes-type", "Map", [], "Hash values for algorithms included in hash-algo-ov", [
 			[1, "MD5", "Hex", ["?"], "MD5 message digest as defined in RFC3121"],
 			[2, "MD6", "Hex", ["?"], "MD6 message digest as defined in MD6 proposal"],
