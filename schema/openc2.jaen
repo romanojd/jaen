@@ -259,6 +259,30 @@
 			]
 		],
 		
+		["report-type", "Record", [], "The report action tasks an entity to provide information to a designated recipient of the information.", [
+				[1, "action", "Action", [], "The value of this property MUST be report."],
+				[2, "target", "target-report", [], "The target of the report action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-report", "Record", [], "", [
+				[1, "*", "target-report-specifiers", [], "Represents the specified target for the report action."],
+				[2, "options", "target-report-options", [], "Additional options required for the report action."]
+			]
+		],
+		
+		["target-report-specifiers", "Choice", [], "", [
+				[1, "artifact", "artifact", [], "Specifies a Artifact target."]
+			]
+		],
+		
+		["target-report-options", "Record", [], "", [
+				[1, "request", "target-report-request", [], "TBSL: This is the report request string."]
+			]
+		],
+		
 		["deny-type", "Record", [], "The deny action is used to prevent a certain event or action from completion, such as preventing a flow from reaching a destination (e.g., block) or preventing access.", [
 				[1, "action", "Action", [], "The value of this property MUST be deny."],
 				[2, "target", "target-deny", [], "The target of the deny action."],
