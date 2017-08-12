@@ -409,7 +409,7 @@
 				[3, "unspecified", "redirect, was \"where = null\""]]
 		],
 		
-		["allow-type", "Record", [], "The allow action is used to prevent a certain event or action from completion, such as preventing a flow from reaching a destination (e.g., block) or preventing access.", [
+		["allow-type", "Record", [], "An allow action is typically associated with something that was previously denied (e.g., deny, contain).", [
 				[1, "action", "Action", [], "The value of this property MUST be allow."],
 				[2, "target", "target-allow", [], "The target of the allow action."],
 				[3, "actuator", "Actuator", ["?"], "#common"],
