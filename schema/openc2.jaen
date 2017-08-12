@@ -311,7 +311,7 @@
 		
 		["target-notify-specifiers", "Choice", [], "", [
 				[1, "process", "process", [], "Specifies a Process target."],
-				[2, "user_account", "user-accont", [], "Specifies a User Account target."]
+				[2, "user_account", "user-account", [], "Specifies a User Account target."]
 			]
 		],
 		
@@ -356,7 +356,8 @@
 		],
 		
 		["target-deny-options", "Record", [], "", [
-				[1, "method", "target-deny-method", [], "Identifies the method of the deny action."]
+				[1, "method", "target-deny-method", ["?"], "Identifies the method of the deny action."],
+				[2, "where", "target-deny-where", ["?"], "The general location within the enclave to perform the DENY action."]
 			]
 		],
 		
@@ -367,6 +368,12 @@
 				[4, "blacklist", ""],
 				[5, "whitelist", ""]
 			]
+		],
+		
+		["target-deny-where", "Enumerated", [], "", [
+				[1, "internal", ""],
+				[2, "perimeter", ""],
+				[3, "unspecified", "redirect, was \"where = null\""]]
 		],
 		
 		["set-type", "Record", [], "The set action changes a value, configuration, or state of a managed entity within an IT system.", [
