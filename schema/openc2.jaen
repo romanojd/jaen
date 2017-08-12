@@ -170,7 +170,29 @@
 				[1, "search", "target-scan-search", [], "NEEDS WORK"]
 			]
 		],
-
+		
+		
+		["locate-type", "Record", [], "The locate action is used to find an object either physically, logically, functionally, or by organization. This action enables one to tell where in the system an event or trigger occurred.", [
+				[1, "action", "Action", [], "The value of this property MUST be locate."],
+				[2, "target", "target-locate", [], "The target of the locate action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-locate", "Record", [], "", [
+				[1, "*", "target-locate-specifiers", [], "Represents the specified target for the locate action."]
+			]
+		],
+		
+		["target-locate-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "file", "file", [], "Specifies a File target."],
+				[3, "ipv4_addr", "ipv4-addr", [], "Specifies a IPv4 Address target."],
+				[4, "user_account", "user-account", [], "Specifies a User Account target"]
+			]
+		],
+		
 
 		["deny-type", "Record", [], "The deny action is used to prevent a certain event or action from completion, such as preventing a flow from reaching a destination (e.g., block) or preventing access.", [
 				[1, "action", "Action", [], "The value of this property MUST be deny."],
