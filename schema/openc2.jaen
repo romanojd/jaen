@@ -232,7 +232,7 @@
 			]
 		],
 		
-		["query-type", "Record", [], "The #query action initiates a single request for information.", [
+		["query-type", "Record", [], "The query action initiates a single request for information.", [
 				[1, "action", "Action", [], "The value of this property MUST be query."],
 				[2, "target", "target-query", [], "The target of the query action."],
 				[3, "actuator", "Actuator", ["?"], "#common"],
