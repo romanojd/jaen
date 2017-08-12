@@ -232,7 +232,33 @@
 			]
 		],
 		
-
+		["query-type", "Record", [], "The #query action initiates a single request for information.", [
+				[1, "action", "Action", [], "The value of this property MUST be query."],
+				[2, "target", "target-query", [], "The target of the query action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-query", "Record", [], "", [
+				[1, "*", "target-query-specifiers", [], "Represents the specified target for the query action."],
+				[2, "options", "target-query-options", [], "Additional options required for the query action."]
+			]
+		],
+		
+		["target-query-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "file", "file", [], "Specifies a File target."],
+				[3, "ipv4_addr", "ipv4-addr", [], "Specifies a IPv4 Address target."],
+				[4, "user_account", "user-account", [], "Specifies a User Account target"]
+			]
+		],
+		
+		["target-query-options", "Record", [], "", [
+				[1, "request", "target-query-request", [], "TBSL: This is the query request string."]
+			]
+		],
+		
 		["deny-type", "Record", [], "The deny action is used to prevent a certain event or action from completion, such as preventing a flow from reaching a destination (e.g., block) or preventing access.", [
 				[1, "action", "Action", [], "The value of this property MUST be deny."],
 				[2, "target", "target-deny", [], "The target of the deny action."],
