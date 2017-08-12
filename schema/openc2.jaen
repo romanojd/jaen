@@ -167,17 +167,9 @@
 		],
 		
 		["target-scan-options", "Record", [], "", [
-				[1, "method", "target-scan-method", [], "Identifies the method of the scan action."],
-				[2, "search", "target-scan-search", [], "NEEDS WORK"]
+				[1, "search", "target-scan-search", [], "NEEDS WORK"]
 			]
 		],
-		
-		["target-scan-method", "Enumerated", [], "", [
-				[1, "non-authenticated", ""],
-				[2, "authenticated", ""]
-			]
-		],
-		
 
 
 		["deny-type", "Record", [], "The deny action is used to prevent a certain event or action from completion, such as preventing a flow from reaching a destination (e.g., block) or preventing access.", [
