@@ -294,7 +294,6 @@
 			]
 		],
 		
-		
 		["notify-type", "Record", [], "The notify action is used to direct an entity to send information to another entity.", [
 				[1, "action", "Action", [], "The value of this property MUST be notify."],
 				[2, "target", "target-notify", [], "The target of the notify action."],
@@ -376,7 +375,7 @@
 				[3, "unspecified", "redirect, was \"where = null\""]]
 		],
 		
-		["contain-type", "Record", [], "The #contain action stipulates the isolation of a file or process or entity such that it cannot modify or access assets or processes that support the business and/or operations of the enclave.", [
+		["contain-type", "Record", [], "The contain action stipulates the isolation of a file or process or entity such that it cannot modify or access assets or processes that support the business and/or operations of the enclave.", [
 				[1, "action", "Action", [], "The value of this property MUST be contain."],
 				[2, "target", "target-contain", [], "The target of the contain action."],
 				[3, "actuator", "Actuator", ["?"], "#common"],
@@ -405,6 +404,43 @@
 		],
 		
 		["target-contain-where", "Enumerated", [], "", [
+				[1, "internal", ""],
+				[2, "perimeter", ""],
+				[3, "unspecified", "redirect, was \"where = null\""]]
+		],
+		
+		["allow-type", "Record", [], "The allow action is used to prevent a certain event or action from completion, such as preventing a flow from reaching a destination (e.g., block) or preventing access.", [
+				[1, "action", "Action", [], "The value of this property MUST be allow."],
+				[2, "target", "target-allow", [], "The target of the allow action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-allow", "Record", [], "", [
+				[1, "*", "target-allow-specifiers", [], "Represents the specified target for the allow action."],
+				[2, "options", "target-allow-options", [], "Additional options required for the allow action."]
+			]
+		],
+		
+		["target-allow-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "file", "file", [], "Specifies a File target."],
+				[3, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target"],
+				[4, "process", "process", [], "Specifies a Process target"],
+				[5, "software", "software", [], "Specifies a Software target"],
+				[6, "url", "url", [], "Specifies a URL target"],
+				[7, "user_account", "user-account", [], "Specifies a User Account target"]
+			]
+		],
+		
+		["target-allow-options", "Record", [], "", [
+				[1, "permissions", "target-allow-permissions", ["?"], "Specific permissions to be granted to the user. (This only applies to a user_account. Can we restrict this option to a specific target?)"],
+				[2, "where", "target-allow-where", ["?"], "The general location within the enclave to perform the allow action."]
+			]
+		],
+		
+		["target-allow-where", "Enumerated", [], "", [
 				[1, "internal", ""],
 				[2, "perimeter", ""],
 				[3, "unspecified", "redirect, was \"where = null\""]]
