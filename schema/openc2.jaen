@@ -106,6 +106,14 @@
 			]
 		],
 		
+		["response-type", "Enumerated", [], "", [
+				[1, "ack", ""],
+				[2, "status", ""],
+				[3, "query", ""]
+			]
+		],
+		
+		
 		["OpenC2Response", "Record", [], "", [
 				[1, "status", "status-code", [], "The status code."],
 				[2, "status_text", "String", ["?"], "Any descriptive text associated with the status code."],
