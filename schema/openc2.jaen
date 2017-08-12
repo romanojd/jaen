@@ -446,6 +446,166 @@
 				[3, "unspecified", "redirect, was \"where = null\""]]
 		],
 		
+		["start-type", "Record", [], "The start action initiates a process, application, system or some other activity.", [
+				[1, "action", "Action", [], "The value of this property MUST be start."],
+				[2, "target", "target-start", [], "The target of the start action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-start", "Record", [], "", [
+				[1, "*", "target-start-specifiers", [], "Represents the specified target for the start action."],
+				[2, "options", "target-start-options", [], "Additional options required for the start action."]
+			]
+		],
+		
+		["target-start-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "disk_partition", "disk-partition", [], "Specifies a Disk Partition target."],
+				[3, "process", "process", [], "Specifies a Process target"],
+				[4, "software", "software", [], "Specifies a Software target"]
+			]
+		],
+		
+		["target-start-options", "Record", [], "", [
+				[1, "method", "target-start-method", ["?"], "The start method."]
+			]
+		],
+		
+		["target-start-method", "Enumerated", [], "", [
+				[0, "unspecified", ""],
+				[1, "spawn", ""]
+			]
+		],
+		
+		["stop-type", "Record", [], "The stop action halts a system or ends an activity.", [
+				[1, "action", "Action", [], "The value of this property MUST be stop."],
+				[2, "target", "target-stop", [], "The target of the stop action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-stop", "Record", [], "", [
+				[1, "*", "target-stop-specifiers", [], "Represents the specified target for the stop action."],
+				[2, "options", "target-stop-options", [], "Additional options required for the stop action."]
+			]
+		],
+		
+		["target-stop-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "disk_partition", "disk-partition", [], "Specifies a Disk Partition target."],
+				[3, "process", "process", [], "Specifies a Process target"],
+				[4, "user_account", "user-account", [], "Specifies a User Account target"],
+				[5, "user_session", "user-session", [], "Specifies a User Session target"]
+			]
+		],
+		
+		["target-stop-options", "Record", [], "", [
+				[1, "method", "target-stop-method", ["?"], "When there is more than one way to perform the action, the method can be specified, if necessary."]
+			]
+		],
+		
+		["target-stop-method", "Enumerated", [], "", [
+				[0, "unspecified", ""],
+				[1, "graceful", ""],
+				[2, "immediate", ""]
+			]
+		],
+		
+		["restart-type", "Record", [], "The restart action conducts a stop of a system or an activity followed by a start of a system or an activity.", [
+				[1, "action", "Action", [], "The value of this property MUST be restart."],
+				[2, "target", "target-restart", [], "The target of the restart action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "modifiers-restart", ["?"], "The modifiers of the restart action."]
+			]
+		],
+		
+		["target-restart", "Record", [], "", [
+				[1, "*", "target-restart-specifiers", [], "Represents the specified target for the restart action."]
+			]
+		],
+		
+		["target-restart-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "process", "process", [], "Specifies a Process target"]
+			]
+		],
+		
+		["modifiers-restart", "Map", [], "", [
+				[1, "context", "String", ["?"], "#common"],
+				[2, "start_time", "date-time", ["?"], "#common"],
+				[3, "end_time", "date-time", ["?"], "#common"],
+				[4, "command_id", "command-id", ["?"], "#common"],
+				[5, "response", "response-type", ["?"], "#common"],
+				[6, "respond_to", "respond-to", ["?"], "#common"],
+				[7, "frequency", "duration", ["?"], "The frequency at which to perform the action. The value is the requested time between execution events."]
+			]
+		],
+		
+		["pause-type", "Record", [], "The pause action ceases a system or activity while maintaining state.", [
+				[1, "action", "Action", [], "The value of this property MUST be pause."],
+				[2, "target", "target-pause", [], "The target of the pause action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "modifiers-pause", ["?"], "The modifiers of the pause action."]
+			]
+		],
+		
+		["target-pause", "Record", [], "", [
+				[1, "*", "target-pause-specifiers", [], "Represents the specified target for the pause action."],
+				[2, "options", "target-pause-options", [], "Additional options required for the pause action."]
+			]
+		],
+		
+		["target-pause-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "process", "process", [], "Specifies a Process target"]
+			]
+		],
+		
+		["target-pause-options", "Record", [], "", [
+				[1, "method", "target-pause-method", ["?"], "When there is more than one way to perform the action, the method can be specified, if necessary."]
+			]
+		],
+		
+		["target-pause-method", "Enumerated", [], "", [
+				[0, "unspecified", ""],
+				[1, "sleep", ""],
+				[2, "hibernate", ""],
+				[2, "suspend", ""]
+			]
+		],
+		
+		["modifiers-pause", "Map", [], "", [
+				[1, "context", "String", ["?"], "#common"],
+				[2, "start_time", "date-time", ["?"], "#common"],
+				[3, "end_time", "date-time", ["?"], "#common"],
+				[4, "command_id", "command-id", ["?"], "#common"],
+				[5, "response", "response-type", ["?"], "#common"],
+				[6, "respond_to", "respond-to", ["?"], "#common"],
+				[7, "duration", "duration", ["?"], "The time to wait until returning to the previous state."]
+			]
+		],
+		["resume-type", "Record", [], "The resume action starts a system or activity from a paused state.", [
+				[1, "action", "Action", [], "The value of this property MUST be resume."],
+				[2, "target", "target-resume", [], "The target of the resume action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-resume", "Record", [], "", [
+				[1, "*", "target-resume-specifiers", [], "Represents the specified target for the resume action."]
+			]
+		],
+		
+		["target-resume-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "process", "process", [], "Specifies a Process target"]
+			]
+		],
+		
 		["set-type", "Record", [], "The set action changes a value, configuration, or state of a managed entity within an IT system.", [
 				[1, "action", "Action", [], "The value of this property MUST be set."],
 				[2, "target", "target-set", [], "The target of the set action."],
