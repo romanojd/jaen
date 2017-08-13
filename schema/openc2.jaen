@@ -606,6 +606,24 @@
 			]
 		],
 		
+		["cancel-type", "Record", [], "The cancel action invalidates a previously issued action.", [
+				[1, "action", "Action", [], "The value of this property MUST be cancel."],
+				[2, "target", "target-cancel", [], "The target of the cancel action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-cancel", "Record", [], "", [
+				[1, "*", "target-cancel-specifiers", [], "Represents the specified target for the cancel action."]
+			]
+		],
+		
+		["target-cancel-specifiers", "Choice", [], "", [
+				[1, "command", "command", [], "Specifies a Command target."]
+			]
+		],
+		
 		["set-type", "Record", [], "The set action changes a value, configuration, or state of a managed entity within an IT system.", [
 				[1, "action", "Action", [], "The value of this property MUST be set."],
 				[2, "target", "target-set", [], "The target of the set action."],
@@ -660,7 +678,45 @@
 		["target-copy-options", "Record", [], "", [
 				[1, "destination", "*", [], "Identifies the destination of the copy action."]
 			]
-		]
+		],
 		
-	]
+		["update-type", "Record", [], "The update action instructs the component to retrieve, install, process, and operate in accordance with a software update, reconfiguration, or some other update.", [
+				[1, "action", "Action", [], "The value of this property MUST be update."],
+				[2, "target", "target-update", [], "The target of the update action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "modifiers-update", ["?"], ""]
+			]
+		],
+		
+		["target-update", "Record", [], "", [
+				[1, "*", "target-update-specifiers", [], "Represents the specified target for the update action."],
+				[2, "options", "target-update-options", [], "Additional options required for the update action."]
+			]
+		],
+		
+		["target-update-specifiers", "Choice", [], "", [
+				[1, "artifact", "artifact", [], "Specifies a Artifact target."],
+				[2, "file", "file", [], "Specifies a File target"],
+				[3, "software", "software", [], "Specifies a Software target"],
+				[4, "windows_registry_key", "windows-registry-key", [], "Specifies a Windows Registry Key target"]
+			]
+		],
+		
+		["target-update-options", "Record", [], "", [
+				[1, "source", "*", [], "The source of the updated information."]
+			]
+		],
+		
+		["modifiers-update", "Map", [], "", [
+				[1, "context", "String", ["?"], "#common"],
+				[2, "start_time", "date-time", ["?"], "#common"],
+				[3, "end_time", "date-time", ["?"], "#common"],
+				[4, "command_id", "command-id", ["?"], "#common"],
+				[5, "response", "response-type", ["?"], "#common"],
+				[6, "respond_to", "respond-to", ["?"], "#common"],
+				[7, "frequency", "duration", ["?"], "The frequency at which to perform the action. The value is the requested time between execution events."]
+			]
+		],
+
+		]
 }
