@@ -652,34 +652,6 @@
 			]
 		],
 		
-		["copy-type", "Record", [], "The copy action duplicates a file or data flow.", [
-				[1, "action", "Action", [], "The value of this property MUST be copy."],
-				[2, "target", "target-copy", [], "The target of the copy action."],
-				[3, "actuator", "Actuator", ["?"], "#common"],
-				[4, "modifiers", "Modifiers", ["?"], "#common"]
-			]
-		],
-		
-		["target-copy", "Record", [], "", [
-				[1, "*", "target-copy-specifiers", [], "Represents the specified target for the copy action."],
-				[2, "options", "target-copy-options", [], "Additional options required for the copy action."]
-			]
-		],
-		
-		["target-copy-specifiers", "Choice", [], "", [
-				[1, "disk_partition", "disk-partition", [], "Specifies a Disk Partition target."],
-				[2, "file", "file", [], "Specifies a File target"],
-				[3, "directory", "directory", [], "Specifies a Directory target"],
-				[4, "memory", "memory", [], "Specifies a Memory target"],
-				[5, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target"]
-			]
-		],
-		
-		["target-copy-options", "Record", [], "", [
-				[1, "destination", "*", [], "Identifies the destination of the copy action."]
-			]
-		],
-		
 		["update-type", "Record", [], "The update action instructs the component to retrieve, install, process, and operate in accordance with a software update, reconfiguration, or some other update.", [
 				[1, "action", "Action", [], "The value of this property MUST be update."],
 				[2, "target", "target-update", [], "The target of the update action."],
@@ -717,6 +689,406 @@
 				[7, "frequency", "duration", ["?"], "The frequency at which to perform the action. The value is the requested time between execution events."]
 			]
 		],
-
+		
+		["move-type", "Record", [], "The move action changes the location of a file, subnet, network, or, process.", [
+				[1, "action", "Action", [], "The value of this property MUST be move."],
+				[2, "target", "target-move", [], "The target of the move action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-move", "Record", [], "", [
+				[1, "*", "target-move-specifiers", [], "Represents the specified target for the move action."],
+				[2, "options", "target-move-options", [], "Additional options required for the move action."]
+			]
+		],
+		
+		["target-move-specifiers", "Choice", [], "", [
+				[1, "artifact", "artifact", [], "Specifies a Artifact target."],
+				[2, "file", "file", [], "Specifies a File target"]
+			]
+		],
+		
+		["target-move-options", "Record", [], "", [
+				[1, "destination", "*", [], "Identifies the destination of the move action."]
+			]
+		],
+		
+		["redirect-type", "Record", [], "The redirect action changes the flow of traffic to a particular destination other than its original intended destination.", [
+				[1, "action", "Action", [], "The value of this property MUST be redirect."],
+				[2, "target", "target-redirect", [], "The target of the redirect action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-redirect", "Record", [], "", [
+				[1, "*", "target-redirect-specifiers", [], "Represents the specified target for the redirect action."],
+				[2, "options", "target-redirect-options", [], "Additional options required for the redirect action."]
+			]
+		],
+		
+		["target-redirect-specifiers", "Choice", [], "", [
+				[1, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target."],
+				[2, "url", "url", [], "Specifies a URL target"]
+			]
+		],
+		
+		["target-redirect-options", "Record", [], "", [
+				[1, "destination", "*", [], "Identifies the destination of the redirect action."]
+			]
+		],
+		
+		["delete-type", "Record", [], "The delete action removes data and files.", [
+				[1, "action", "Action", [], "The value of this property MUST be delete."],
+				[2, "target", "target-delete", [], "The target of the delete action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-delete", "Record", [], "", [
+				[1, "*", "target-delete-specifiers", [], "Represents the specified target for the delete action."]
+			]
+		],
+		
+		["target-delete-specifiers", "Choice", [], "", [
+				[1, "artifact", "artifact", [], "Specifies a Artifact target."],
+				[2, "email_message", "email-message", [], "Specifies a Email Message target"],
+				[3, "file", "file", [], "Specifies a File target"]
+			]
+		],
+		
+		["snapshot-type", "Record", [], "The snapshot action records and stores the state of a target at an instant in time.", [
+				[1, "action", "Action", [], "The value of this property MUST be snapshot."],
+				[2, "target", "target-snapshot", [], "The target of the snapshot action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-snapshot", "Record", [], "", [
+				[1, "*", "target-snapshot-specifiers", [], "Represents the specified target for the snapshot action."]
+			]
+		],
+		
+		["target-snapshot-specifiers", "Choice", [], "", [
+				[1, "process", "process", [], "Specifies a Process target."]
+			]
+		],
+		
+		["detonate-type", "Record", [], "The detonate action executes and observes the behavior of a target (e.g., file, hyperlink) in a manner that is isolated from assets that support the business or operations of the enclave.", [
+				[1, "action", "Action", [], "The value of this property MUST be detonate."],
+				[2, "target", "target-detonate", [], "The target of the detonate action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-detonate", "Record", [], "", [
+				[1, "*", "target-detonate-specifiers", [], "Represents the specified target for the detonate action."]
+			]
+		],
+		
+		["target-detonate-specifiers", "Choice", [], "", [
+				[1, "file", "file", [], "Specifies a File target"],
+				[2, "url", "url", [], "Specifies a URL target"]
+			]
+		],
+		
+		["restore-type", "Record", [], "The restore action deletes and/or replaces files, settings, or attributes to return the system to an identical or similar known state.", [
+				[1, "action", "Action", [], "The value of this property MUST be restore."],
+				[2, "target", "target-restore", [], "The target of the restore action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-restore", "Record", [], "", [
+				[1, "*", "target-restore-specifiers", [], "Represents the specified target for the restore action."],
+				[2, "options", "target-restore-options", [], "Additional options required for the restore action."]
+			]
+		],
+		
+		["target-restore-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."]
+			]
+		],
+		
+		["target-restore-options", "Record", [], "", [
+				[1, "restore_point", "*", [], "The specific restore point to restore to."]
+			]
+		],
+		
+		["save-type", "Record", [], "The save action commits data or system state to memory.", [
+				[1, "action", "Action", [], "The value of this property MUST be save."],
+				[2, "target", "target-save", [], "The target of the save action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-save", "Record", [], "", [
+				[1, "*", "target-save-specifiers", [], "Represents the specified target for the save action."],
+				[2, "options", "target-save-options", [], "Additional options required for the save action."]
+			]
+		],
+		
+		["target-save-specifiers", "Choice", [], "", [
+				[1, "email_message", "email-message", [], "Specifies a Email Message target"],
+				[2, "file", "file", [], "Specifies a File target"],
+				[3, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target."]
+			]
+		],
+		
+		["target-save-options", "Record", [], "", [
+				[1, "destination", "*", [], "Identifies the destination of the save action."]
+			]
+		],
+		
+		["throttle-type", "Record", [], "The throttle action adjusts the throughput of a data flow.", [
+				[1, "action", "Action", [], "The value of this property MUST be throttle."],
+				[2, "target", "target-throttle", [], "The target of the throttle action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-throttle", "Record", [], "", [
+				[1, "*", "target-throttle-specifiers", [], "Represents the specified target for the throttle action."]
+			]
+		],
+		
+		["target-throttle-specifiers", "Choice", [], "", [
+				[1, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target."]
+			]
+		],
+		
+		["delay-type", "Record", [], "The delay action commits data or system state to memory.", [
+				[1, "action", "Action", [], "The value of this property MUST be delay."],
+				[2, "target", "target-delay", [], "The target of the delay action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-delay", "Record", [], "", [
+				[1, "*", "target-delay-specifiers", [], "Represents the specified target for the delay action."],
+				[2, "options", "target-delay-options", [], "Additional options required for the delay action."]
+			]
+		],
+		
+		["target-delay-specifiers", "Choice", [], "", [
+				[1, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target."]
+			]
+		],
+		
+		["target-delay-options", "Record", [], "", [
+				[1, "delay", "duration", [], "The time delay to add to a network connection."]
+			]
+		],
+		
+		["substitute-type", "Record", [], "The substitute action replaces all or part of the data, content or payload in the least detectable manner.", [
+				[1, "action", "Action", [], "The value of this property MUST be substitute."],
+				[2, "target", "target-substitute", [], "The target of the substitute action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-substitute", "Record", [], "", [
+				[1, "*", "target-substitute-specifiers", [], "Represents the specified target for the substitute action."],
+				[2, "options", "target-substitute-options", [], "Additional options required for the substitute action."]
+			]
+		],
+		
+		["target-substitute-specifiers", "Choice", [], "", [
+				[1, "file", "file", [], "Specifies a File target"],
+				[2, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target."]
+			]
+		],
+		
+		["target-substitute-options", "Record", [], "", [
+				[1, "substitute", "*", [], "Additional options that specify what to replace and replace with what."]
+			]
+		],
+		
+		["copy-type", "Record", [], "The copy action duplicates a file or data flow.", [
+				[1, "action", "Action", [], "The value of this property MUST be copy."],
+				[2, "target", "target-copy", [], "The target of the copy action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-copy", "Record", [], "", [
+				[1, "*", "target-copy-specifiers", [], "Represents the specified target for the copy action."],
+				[2, "options", "target-copy-options", [], "Additional options required for the copy action."]
+			]
+		],
+		
+		["target-copy-specifiers", "Choice", [], "", [
+				[1, "disk_partition", "disk-partition", [], "Specifies a Disk Partition target."],
+				[2, "file", "file", [], "Specifies a File target"],
+				[3, "directory", "directory", [], "Specifies a Directory target"],
+				[4, "memory", "memory", [], "Specifies a Memory target"],
+				[5, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target"]
+			]
+		],
+		
+		["target-copy-options", "Record", [], "", [
+				[1, "destination", "*", [], "Identifies the destination of the copy action."]
+			]
+		],
+		
+		["sync-type", "Record", [], "The sync action synchronizes a sensor or actuator with other system components.", [
+				[1, "action", "Action", [], "The value of this property MUST be sync."],
+				[2, "target", "target-sync", [], "The target of the sync action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "modifiers-sync", ["?"], ""]
+			]
+		],
+		
+		["target-sync", "Record", [], "", [
+				[1, "*", "target-sync-specifiers", [], "Represents the specified target for the sync action."]
+			]
+		],
+		
+		["target-sync-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."]
+			]
+		],
+		
+		["modifiers-sync", "Map", [], "", [
+				[1, "context", "String", ["?"], "#common"],
+				[2, "start_time", "date-time", ["?"], "#common"],
+				[3, "end_time", "date-time", ["?"], "#common"],
+				[4, "command_id", "command-id", ["?"], "#common"],
+				[5, "response", "response-type", ["?"], "#common"],
+				[6, "respond_to", "respond-to", ["?"], "#common"],
+				[7, "frequency", "duration", ["?"], "The frequency at which to perform the action. The value is the requested time between execution events."]
+			]
+		],
+		
+		["distill-type", "Record", [], "The distill action tasks the sensor to send a summary or abstraction of the sensing information instead of the raw data feed.", [
+				[1, "action", "Action", [], "The value of this property MUST be distill."],
+				[2, "target", "target-distill", [], "The target of the distill action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-distill", "Record", [], "", [
+				[1, "*", "target-distill-specifiers", [], "Represents the specified target for the distill action."]
+			]
+		],
+		
+		["target-distill-specifiers", "Choice", [], "", [
+				[1, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target."]
+			]
+		],
+		
+		["augment-type", "Record", [], "The augment action tasks the sensor to send a summary or abstraction of the sensing information instead of the raw data feed.", [
+				[1, "action", "Action", [], "The value of this property MUST be augment."],
+				[2, "target", "target-augment", [], "The target of the augment action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-augment", "Record", [], "", [
+				[1, "*", "target-augment-specifiers", [], "Represents the specified target for the augment action."],
+				[2, "options", "target-augment-options", [], "Additional options required for the augment action."]
+			]
+		],
+		
+		["target-augment-specifiers", "Choice", [], "", [
+				[1, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target."]
+			]
+		],
+		
+		["target-augment-options", "Record", [], "", [
+				[1, "method", "*", [], "The specific augmentation function to perform on the network traffic."]
+			]
+		],
+		
+		["investigate-type", "Record", [], "The investigate action tasks the recipient enclave to aggregate and report information as it pertains to an anomaly.", [
+				[1, "action", "Action", [], "The value of this property MUST be investigate."],
+				[2, "target", "target-investigate", [], "The target of the investigate action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-investigate", "Record", [], "", [
+				[1, "*", "target-investigate-specifiers", [], "Represents the specified target for the investigate action."]
+			]
+		],
+		
+		["target-investigate-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "domain_name", "domain-name", [], "Specifies a Domain Name target."],
+				[3, "email_message", "email-message", [], "Specifies a Email Message target."],
+				[4, "file", "file", [], "Specifies a File target."],
+				[5, "ipv4_addr", "ipv4-addr", [], "Specifies a IPv4 Address target."],
+				[6, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target"],
+				[7, "process", "process", [], "Specifies a Process target"],
+				[8, "software", "software", [], "Specifies a Software target"],
+				[9, "x509_certificate", "x509-certificate", [], "Specifies a x509 Certificate target"]
+			]
+		],
+		
+		["mitigate-type", "Record", [], "The mitigate action tasks the recipient enclave to circumvent the problem without necessarily eliminating the vulnerability or attack point.", [
+				[1, "action", "Action", [], "The value of this property MUST be mitigate."],
+				[2, "target", "target-mitigate", [], "The target of the mitigate action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-mitigate", "Record", [], "", [
+				[1, "*", "target-mitigate-specifiers", [], "Represents the specified target for the mitigate action."]
+			]
+		],
+		
+		["target-mitigate-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "domain_name", "domain-name", [], "Specifies a Domain Name target."],
+				[3, "email_message", "email-message", [], "Specifies a Email Message target."],
+				[4, "file", "file", [], "Specifies a File target."],
+				[5, "ipv4_addr", "ipv4-addr", [], "Specifies a IPv4 Address target."],
+				[6, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target"],
+				[7, "process", "process", [], "Specifies a Process target"],
+				[8, "software", "software", [], "Specifies a Software target"],
+				[9, "x509_certificate", "x509-certificate", [], "Specifies a x509 Certificate target"]
+			]
+		],
+		
+		["remediate-type", "Record", [], "The remediate action tasks the recipient enclave to eliminate the vulnerability or attack point. A remediate action implies that addressing the issue is paramount.", [
+				[1, "action", "Action", [], "The value of this property MUST be remediate."],
+				[2, "target", "target-remediate", [], "The target of the remediate action."],
+				[3, "actuator", "Actuator", ["?"], "#common"],
+				[4, "modifiers", "Modifiers", ["?"], "#common"]
+			]
+		],
+		
+		["target-remediate", "Record", [], "", [
+				[1, "*", "target-remediate-specifiers", [], "Represents the specified target for the remediate action."]
+			]
+		],
+		
+		["target-remediate-specifiers", "Choice", [], "", [
+				[1, "device", "device", [], "Specifies a Device target."],
+				[2, "domain_name", "domain-name", [], "Specifies a Domain Name target."],
+				[3, "email_message", "email-message", [], "Specifies a Email Message target."],
+				[4, "file", "file", [], "Specifies a File target."],
+				[5, "ipv4_addr", "ipv4-addr", [], "Specifies a IPv4 Address target."],
+				[6, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target"],
+				[7, "process", "process", [], "Specifies a Process target"],
+				[8, "software", "software", [], "Specifies a Software target"],
+				[9, "x509_certificate", "x509-certificate", [], "Specifies a x509 Certificate target"]
+			]
 		]
+	]
 }
