@@ -30,7 +30,7 @@
 				[1, "type", "action-type", [], ""],
 				[2, "options", "action-option-type", [], ""]
 			]
-		]
+		],
 		
 		["action-type", "Enumerated", [], "", [
 				[1, "scan", "The scan action is the systematic examination of some aspect of the entity or its environment in order to obtain information."],
