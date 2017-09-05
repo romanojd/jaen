@@ -1335,8 +1335,8 @@
 		],
 		
 		["target-copy", "Record", [], "", [
-				[1, "*", "Target", [], "Represents the specified target for the copy action."],
-				[2, "options", "target-copy-options", [], "Additional options required for the copy action."]
+				[1, "specifiers", "Target", ["?"], "Represents the specified target for the copy action."],
+				[2, "options", "target-copy-options", ["?"], "Additional options required for the copy action."]
 			]
 		],
 		
