@@ -177,13 +177,13 @@
 			[13, "ssdeep", "Hex", ["?"], "ssdeep fuzzy hashing algorithm as defined in the SSDEEP specification"],
 			[14, "WHIRLPOOL", "Hex", ["?"], "whirlpool cryptographic hash function as defined in ISO/IEC 10118-3:2004"]]
 		],
-
+		
 		["artifact", "Record", [], "", [
 			[1, "mime_type", "String", ["?"], "MUST be a valid MIME type as specified in the IANA Media Types registry"],
 			[2, "*", "payload", ["?"], "choice of literal content or URL to obtain content"],
 			[3, "hashes", "hashes-type", ["?"], "Specifies a dictionary of hashes for the contents of the payload"]]
 		],
-
+		
 		["payload", "Choice", [], "", [
 			[1, "payload_bin", "Base64", [], "Specifies the binary data contained in the artifact as a base64-encoded string."],
 			[2, "url", "String", [], "MUST be a valid URL that resolves to the un-encoded content"]]
@@ -1335,17 +1335,8 @@
 		],
 		
 		["target-copy", "Record", [], "", [
-				[1, "*", "target-copy-specifiers", [], "Represents the specified target for the copy action."],
+				[1, "*", "Target", [], "Represents the specified target for the copy action."],
 				[2, "options", "target-copy-options", [], "Additional options required for the copy action."]
-			]
-		],
-		
-		["target-copy-specifiers", "Choice", [], "", [
-				[1, "disk_partition", "disk-partition", [], "Specifies a Disk Partition target."],
-				[2, "file", "file", [], "Specifies a File target"],
-				[3, "directory", "directory", [], "Specifies a Directory target"],
-				[4, "memory", "memory", [], "Specifies a Memory target"],
-				[5, "network_traffic", "network-traffic", [], "Specifies a Network Traffic target"]
 			]
 		],
 		
