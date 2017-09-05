@@ -22,12 +22,17 @@
 		["OpenC2Command", "Record", [], "", [
 				[1, "action", "Action", [], "The task or activity to be performed (i.e., the 'verb')."],
 				[2, "target", "Target", [], "The object of the action. The action is performed on the target."],
-				[3, "actuator", "Actuator", ["?"], "The subject of the action. The actuator executes the action on the target."],
-				[4, "modifiers", "Modifiers", ["?"], "An object containing additional properties that modify the action."]
+				[3, "actuator", "Actuator", ["?"], "The subject of the action. The actuator executes the action on the target."]
 			]
 		],
 		
-		["Action", "Enumerated", [], "", [
+		["Action", "Record", [], "", [
+				[1, "type", "action-type", [], ""],
+				[2, "options", "action-option-type", [], ""]
+			]
+		]
+		
+		["action-type", "Enumerated", [], "", [
 				[1, "scan", "The scan action is the systematic examination of some aspect of the entity or its environment in order to obtain information."],
 				[2, "locate", "The locate action is used to find an object either physically, logically, functionally, or by organization. This action enables one to tell where in the system an event or trigger occurred."],
 				[3, "query", "The query action initiates a single request for information."],
@@ -61,6 +66,23 @@
 				[31, "investigate", "The investigate action tasks the recipient enclave to aggregate and report information as it pertains to an anomaly."],
 				[32, "mitigate", "The mitigate action tasks the recipient enclave to circumvent the problem without necessarily eliminating the vulnerability or attack point."],
 				[33, "remediate", "The remediate action tasks the recipient enclave to eliminate the vulnerability or attack point. Remediate implies that addressing the issue is paramount."]
+			]
+		],
+		
+		["action-option-type", "Map", [], "", [
+				[1, "context", "String", ["?"], "A reference that provides context for the action."],
+				[2, "start_time", "date-time", ["?"], "The specific date/time to initiate the action."],
+				[3, "end_time", "date-time", ["?"], "The specific date/time to terminate the action."],
+				[4, "command_id", "command-id", ["?"], "The unique identifier for the action."],
+				[5, "response", "response-type", ["?"], "Indicate the type of response required for the action."],
+				[6, "respond_to", "respond-to", ["?"], "The location where the response should be sent."]
+			]
+		],
+		
+		["response-type", "Enumerated", [], "", [
+				[1, "ack", ""],
+				[2, "status", ""],
+				[3, "query", ""]
 			]
 		],
 		
@@ -99,23 +121,6 @@
 		["ActuatorSpecifiers", "Record", [], "", [
 				[1, "actuator_id", "url", ["?"], ""],
 				[2, "asset_id", "String", ["?"], ""]]
-		],
-		
-		["Modifiers", "Map", [], "", [
-				[1, "context", "String", ["?"], "A reference that provides context for the action."],
-				[2, "start_time", "date-time", ["?"], "The specific date/time to initiate the action."],
-				[3, "end_time", "date-time", ["?"], "The specific date/time to terminate the action."],
-				[4, "command_id", "command-id", ["?"], "The unique identifier for the action."],
-				[5, "response", "response-type", ["?"], "Indicate the type of response required for the action."],
-				[6, "respond_to", "respond-to", ["?"], "The location where the response should be sent."]
-			]
-		],
-		
-		["response-type", "Enumerated", [], "", [
-				[1, "ack", ""],
-				[2, "status", ""],
-				[3, "query", ""]
-			]
 		],
 		
 		["OpenC2Response", "Record", [], "", [
